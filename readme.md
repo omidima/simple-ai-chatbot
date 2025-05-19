@@ -86,10 +86,10 @@ Use this repository as a base and start building new skills to share with others
 We plan to release a **developer guide** and **detailed documentation** soon.
 
 ## ✅ Project Tasks
- - [] Write developer guide
- - [] Add code documentation
- - [] Develop new skills
- - [] Upload files & support reading datasheets
+ - [ ] Write developer guide
+ - [ ] Add code documentation
+ - [ ] Develop new skills
+ - [ ] Upload files & support reading datasheets
  - [x] Add register page
  - [x] Create README file
  - [x] Create .env file
