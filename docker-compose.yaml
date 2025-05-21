@@ -42,9 +42,8 @@ services:
     networks:
         - backend
     image: omidima/chainlit-frontend:latest
-    environment:
-      - VITE_LANG=${INTERFACE_LANG}
-      - VITE_BASE_URL=${BASE_URL}
+    volumes:
+      - ./config.json:/usr/share/nginx/html/config.json
     ports:
       - "4173"
 

@@ -61,8 +61,12 @@ POSTGRES_DB=mydb
 POSTGRES_USER=myuser
 POSTGRES_PASSWORD=mypassword
 DATABASE_URL="postgresql+asyncpg://myuser:mypassword@postgres:5432/mydb"
-INTERFACE_LANG=fa
 CHAINLIT_AUTH_SECRET="your-secret-key"
+```
+
+At the end run this code for create config.json file for frontend config
+```
+cp config.example.json config.json
 ```
 ### 2. Start the app:
 Run the following command:
@@ -75,11 +79,15 @@ Once the containers are running, access your chatbot at:<br>
 
 > 💡 If port 80 is unavailable, you can change the Nginx port in the `docker-compose.yml` file.
 
-### 🌍 Change Interface Language
-To switch between English and Persian, update the `INTERFACE_LANG` field in your `.env` file:
+### 🌍 Change Interface Language And Set External IP
+To switch between English and Persian, update the `INTERFACE_LANG` field in your `config.json` file:
 
+```json
+"language":"fa"  # or 'en'
 ```
-INTERFACE_LANG=fa  # or 'en'
+and for set external ip for app set this field
+```json
+"base_url":"<your ip address>"
 ```
 ## 🛠️ Next Steps
 Use this repository as a base and start building new skills to share with others.
@@ -94,5 +102,6 @@ We plan to release a **developer guide** and **detailed documentation** soon.
  - [x] Create README file
  - [x] Create .env file
  - [x] Release Docker image for frontend
+ - [x] Add config.json file for controll interface
 
 Let me know if you'd like this translated into Persian or want to add badges, screenshots, or a video demo
