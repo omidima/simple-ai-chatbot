@@ -45,7 +45,7 @@ services:
     volumes:
       - ./config.json:/usr/share/nginx/html/config.json
     ports:
-      - "4173"
+      - ":8080:80"
 
   nnginx:
     image: nginx:1.25-alpine

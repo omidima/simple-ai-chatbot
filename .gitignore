@@ -34,3 +34,5 @@ dist-ssr
 frontend
 __pycache__
 media/*
+
+config.json
