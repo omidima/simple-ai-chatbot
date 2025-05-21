@@ -1,6 +1,6 @@
 from src.core.shared_skills import generate_response
 from src.core.base_skill_class import AISkill
-from g4f import Client
+from g4f import AsyncClient
 import requests
 
 from src.app.__base import cl
@@ -18,7 +18,7 @@ class ImageGeneratorSkill(AISkill):
         if (await super().run(message)):
             return
         
-        client = Client()
+        client = AsyncClient()
 
         text = message.to_dict()["output"]
 
