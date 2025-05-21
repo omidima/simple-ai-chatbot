@@ -1,0 +1,25 @@
+[project]
+name = "simple-ai-chatbot"
+version = "0.1.0"
+description = "simple chatbot for deploy on your own server"
+authors = [
+    {name = "omidima",email = "o.h.hadidy@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12.2,<4"
+package-mode = false
+dependencies = [
+    "chainlit (>=2.5.5,<3.0.0)",
+    "g4f (>=0.5.2.9,<0.6.0.0)",
+    "fastapi (>=0.115.12,<0.116.0)",
+    "pydantic (>=2.11.4,<3.0.0)",
+    "sqlalchemy (>=2.0.41,<3.0.0)",
+    "psycopg2-binary (>=2.9.10,<3.0.0)",
+    "openai (>=1.79.0,<2.0.0)",
+    "asyncpg (>=0.30.0,<0.31.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

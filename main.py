@@ -8,13 +8,12 @@ from src.utils.password_hasher import hash_password
 from src.app.database import AppUsers, Base, engine, get_db
 from sqlalchemy.orm import Session
 
-app = FastAPI()
-
-@app.on_event("startup")
-async def startup():
-    # Init database and tables
+async def lifespan(app):
     Base.metadata.create_all(bind=engine)
     get_data_layer()
+    yield
+
+app = FastAPI(lifespan=lifespan)
 
 origins = [
     "http://localhost",
@@ -65,3 +64,7 @@ async def signup_users(data: UserInfo, db: Session = Depends(get_db)):
 
 
 mount_chainlit(app=app, target="src/app/__init__.py", path="/api")
+
+if __name__ == "__main__":
+    import os
+    os.system("uvicorn main:app --host 0.0.0.0 --port 8000")

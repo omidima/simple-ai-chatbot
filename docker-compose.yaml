@@ -3,7 +3,6 @@ version: "3.8"
 services:
   postgres:
     image: postgres:17.2-alpine
-    container_name: my_postgres_1
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
@@ -44,13 +43,13 @@ services:
         - backend
     image: omidima/chainlit-frontend:latest
     environment:
-      - INTERFACE_LANG=${INTERFACE_LANG:-en}
+      - VITE_LANG=${INTERFACE_LANG}
+      - VITE_BASE_URL=${BASE_URL}
     ports:
       - "4173"
 
   nnginx:
     image: nginx:1.25-alpine
-    container_name: my-nginx
     ports:
       - "80:80"
     volumes:

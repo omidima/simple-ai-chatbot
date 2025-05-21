@@ -1,7 +1,6 @@
-from src.skills import (ImageGeneratorSkill, DevelopingSkill, TorobSearchSkill)
+from src.skills import (ImageGeneratorSkill, DevelopingSkill)
 
 skills = [
     DevelopingSkill(),
-    ImageGeneratorSkill(),
-    TorobSearchSkill()
+    ImageGeneratorSkill()
 ]

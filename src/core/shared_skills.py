@@ -30,4 +30,5 @@ async def receive_message(message: str, prompts: list = []):
 
     cl.user_session.set("message_history", message_history)
 
+    msg.command = None
     await msg.update()

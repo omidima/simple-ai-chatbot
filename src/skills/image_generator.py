@@ -33,7 +33,9 @@ class ImageGeneratorSkill(AISkill):
             path=path, name=response.data[0].url.split("/")[-1], display="inline"
         )
 
+        
         await cl.Message(
             "حواست باشه توی این مدل من حافظه ندارم و نمیتونم تصاویری که تولید کردم رو دوباره ویرایش کنم. پس دوباره کامل باید همه رو برام توضیح بدی.",
             elements=[image],
+            command=None
         ).send()

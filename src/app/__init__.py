@@ -13,6 +13,10 @@ async def on_chat_start():
     await cl.context.emitter.set_commands(COMMANDS)
 
 
+@cl.on_chat_end
+def on_chat_end():
+    cl.user_session.set("memory", [])
+
 @cl.on_message
 async def on_message(message: cl.Message):
 
@@ -21,3 +25,6 @@ async def on_message(message: cl.Message):
 
     for item in skills:
         await item.run(message=message)
+
+    message.command = None
+    await message.update()

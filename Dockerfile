@@ -1,12 +1,14 @@
-FROM python:3.11
+FROM python:3.12
 
 WORKDIR /opt/app
 
-COPY re.txt /opt/app/re.txt
+COPY pyproject.toml .
 
-RUN pip install --no-cache-dir -r /opt/app/re.txt
-RUN pip install psycopg2-binary
+RUN pip install --no-cache-dir poetry
+RUN poetry config virtualenvs.create false && \
+    poetry install --no-root --no-cache
 
 COPY . .
+RUN mkdir /opt/app/media
 
-CMD [ "chainlit", "run", "main.py", "-w" ]
+CMD [ "poetry", "run", "main.py" ]
